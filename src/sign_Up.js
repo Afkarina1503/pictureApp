@@ -9,6 +9,7 @@ export default class CoreComponen extends Component {
         this.state={
             Username:"",
             Password:'',
+            Email:'',
         };
         
     }
@@ -38,13 +39,16 @@ export default class CoreComponen extends Component {
             placeholder='Password' 
             style={styles.formInput}
         />   
+         <TextInput 
+            onChangeText={(Email)=>this.setState({Email})}
+            value={this.state.Email}
+            placeholder='Email' 
+            style={styles.formInput}
+        />   
          <TouchableOpacity 
          style ={styles.button}  > 
-            <Text style={styles.text1}>Login</Text>
+            <Text style={styles.text1}>Sukses</Text>
         </TouchableOpacity>
-        <View>
-            <Text style={styles.text5}>Sign Up</Text>
-            </View>
       </View>
       </View>
       </View>

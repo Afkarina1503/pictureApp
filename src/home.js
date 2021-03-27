@@ -5,8 +5,8 @@ export default function home() {
     return (
         <ScrollView>
         <View>
-            <Text style={styles.text1}>Explore Best Photo</Text> 
-            <Text style={styles.text2}>Beautiful Photo</Text>   
+            <Text style={styles.text1}>Welcome PictureApp</Text> 
+            <Text style={styles.text2}>Explore Best Photo</Text>   
             <View> 
            
             <Image 
@@ -27,23 +27,31 @@ export default function home() {
              <Image 
             style={styles.img5}
             source={require('../src/album/gambar7.png')} />
+             <Image 
+            style={styles.img6}
+            source={require('../src/album/gambar8.png')} />
+             <Image 
+            style={styles.img7}
+            source={require('../src/album/gambar9.png')} />
             </View>
-            </View> 
+            </View>
             </ScrollView>
 
     )
 }
-const styles = StyleSheet.create({
+const styles = StyleSheet.create({ 
     text1:{
         fontSize:26,
         padding:25,
-        fontFamily: 'Poppins-SemiBold'
+        fontFamily:'Poppins-SemiBold',
+        
+        
     },
     text2:{
         fontSize:20,
         marginTop:-25,
         paddingLeft:25,
-        fontFamily: 'Poppins-Italic',
+        fontFamily: 'Poppins-Thin',
     },
     img:{
         width:160,
@@ -87,6 +95,20 @@ const styles = StyleSheet.create({
         borderRadius:15,
         marginLeft:190,
         marginTop:-160,
+    },
+    img6:{
+        width:160,
+        height:220,
+        borderRadius:15,
+        marginLeft:15,
+        marginTop:30,
+    },
+    img7:{
+        width:160,
+        height:230,
+        borderRadius:15,
+        marginLeft:190,
+        marginTop:-230,
     },
 
 });
