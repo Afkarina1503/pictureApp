@@ -12,6 +12,7 @@ import panorama from './src/panorama';
 import Ootd from './src/Ootd';
 import food from './src/food';
 import sign_Up from './src/sign_Up';
+import App2 from './src/App2';
 import { name as appName } from './app.json';
 
 AppRegistry.registerComponent(appName, () =>App);

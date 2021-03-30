@@ -8,10 +8,9 @@ export default function home() {
             <Text style={styles.text1}>Profile</Text> 
             <Text style={styles.text2}></Text>
             <Image style={styles.img1}
-            source={require('../src/album/nomer1.png')}  />
-             <Text style={styles.text3}>Username:</Text>
-             <Text style={styles.text4}>Email:</Text>
-             <Text style={styles.text5}>The harder you try, the more enjoyable it will be when you succeed.</Text>
+            source={require('../src/album/user.png')}  />
+             <Text style={styles.text3}>Username</Text>
+             <Text style={styles.text4}>Email</Text>
             </View>
             </ScrollView>
             )
@@ -31,23 +30,21 @@ export default function home() {
                 fontFamily: 'Poppins-Italic',
             },
             img1:{
-                width:300,
-                height:300,
-                marginLeft:70,
+                width:100,
+                height:100,
+                marginLeft:130,
             },
             text3:{
-                fontSize:23,
+                fontSize:20,
                 fontFamily:'Poppins-Italic',
                 padding:10,
+                marginTop:60,
+                paddingLeft:130,
             },
             text4:{
-                fontSize:23,
+                fontSize:20,
                 fontFamily:'Poppins-Italic',
                 padding:10,
-            },
-            text5:{
-                fontSize:23,
-                fontFamily:'Poppins-Thin',
-                paddingTop:70,
+                paddingLeft:150,
             },
         });

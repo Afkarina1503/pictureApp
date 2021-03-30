@@ -8,6 +8,8 @@ import Contact from './Contact';
 import panorama from './panorama';
 import Ootd from './Ootd';
 import food from './food';
+import sign_Up from './sign_Up';
+import login from './login';
 
 
 import { View, Image } from 'react-native';
@@ -60,10 +62,14 @@ export default function App() {
     return (
         <NavigationContainer>
             <Stack.Navigator screenOptions={{headerShown:false}}>
+                <Stack.Screen name="login" component={login} />
+                <Stack.Screen name="sign_Up" component={sign_Up} />
+                <Stack.Screen name="App" component={App} />
+                <Stack.Screen name="Contact" component={Contact} />
                 <Stack.Screen name="/" component={Router} />
                 <Stack.Screen name="panorama" component={panorama} />
                 <Stack.Screen name="Ootd" component={Ootd} />
-                <Stack.Screen name="food" component={food} />
+                <Stack.Screen name="food" component={food} /> 
             </Stack.Navigator>
         </NavigationContainer>
     );

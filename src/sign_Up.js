@@ -1,119 +1,154 @@
-import React, { Component } from 'react'
-import { Text, StyleSheet, View,TouchableOpacity,TextInput,Image} from 'react-native'
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import React, { Component } from 'react';
+import { StyleSheet, Text, View, TextInput, Button, Alert, ActivityIndicator,Image } from 'react-native';
+import firebase from '../src/Firebase';
+import App from './App';
 
-export default class CoreComponen extends Component {
-    constructor(props) {
-        super(props);
-        this.state={
-            Username:"",
-            Password:'',
-            Email:'',
-        };
-        
+
+export default class sign_Up extends Component {
+  
+  constructor() {
+    super();
+    this.state = { 
+      displayName: '',
+      email: '', 
+      password: '',
+      isLoading: false
     }
+  }
+
+  updateInputVal = (val, prop) => {
+    const state = this.state;
+    state[prop] = val;
+    this.setState(state);
+  }
+
+  registerUser = (App) => {
+    if(this.state.email === '' && this.state.password === '') {
+      Alert.alert('Isi dulu data Anda!')
+    } else {
+      this.setState({
+        isLoading: true,
+      })
+      firebase
+      .auth()
+      .createUserWithEmailAndPassword(this.state.email, this.state.password)
+      .then((res) => {
+        res.user.updateProfile({
+          displayName: this.state.displayName
+        })
+        console.log('Sukses!')
+        this.setState({
+          isLoading: false,
+          displayName: '',
+          email: '', 
+          password: '',
+        })
+        this.props.navigation.navigate('login')
+      })
+      .catch(error => this.setState({ errorMessage: error.message }))      
+    }
+  }
+
   render() {
+    if(this.state.isLoading){
+      return(
+        <View style={styles.preloader}>
+          <ActivityIndicator size="large" color="#9E9E9E"/>
+        </View>
+      )
+    }    
     return (
-        <View style={styles.bg1}>
- 
-        <View >
-            <Text style={styles.text2}>PictureApp</Text>
-            <View>  
-            <Image 
-            style={styles.img}
-            source={require('../src/album/camera.png')} />
-            </View>    
-        
-        <View style ={styles.container}>   
-         
-        <TextInput 
-            onChangeText ={(Username)=>this.setState({Username})}
-            value={this.state.Username}
-            placeholder='Username' 
-            style={styles.formInput}
-        />
-        <TextInput 
-            onChangeText={(Password)=>this.setState({Password})}
-            value={this.state.Email}
-            placeholder='Password' 
-            style={styles.formInput}
-        />   
-         <TextInput 
-            onChangeText={(Email)=>this.setState({Email})}
-            value={this.state.Email}
-            placeholder='Email' 
-            style={styles.formInput}
-        />   
-         <TouchableOpacity 
-         style ={styles.button}  > 
-            <Text style={styles.text1}>Sukses</Text>
-        </TouchableOpacity>
-      </View>
-      </View>
-      </View>
      
+      <View style={styles.container}> 
+       <View>
+         <Text style={styles.text2}>
+           PictureApp
+         </Text>
+         <Image 
+            style={styles.img}
+            source={require('../src/album/camera.png')} /> 
+        <TextInput
+          style={styles.inputStyle}
+          placeholder="Name"
+          value={this.state.displayName}
+          onChangeText={(val) => this.updateInputVal(val, 'displayName')}
+        />      
+        <TextInput
+          style={styles.inputStyle}
+          placeholder="Email"
+          value={this.state.email}
+          onChangeText={(val) => this.updateInputVal(val, 'email')}
+        />
+        <TextInput
+          style={styles.inputStyle}
+          placeholder="Password"
+          value={this.state.password}
+          onChangeText={(val) => this.updateInputVal(val, 'password')}
+          maxLength={15}
+          secureTextEntry={true}
+        />   
+        <Button
+          color="#C4C4C4"
+          title="Signup"
+          onPress={() => this.registerUser()}
+        />
+
+        <Text 
+          style={styles.loginText}
+          onPress={() => this.props.navigation.navigate('login')}>
+          Already Registered? Click here to login
+        </Text>                          
+      </View>
+      </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-    bg1:{
-     flex:1,
-     backgroundColor:'white',
-    },
-    container:{
-     paddingHorizontal:18,
-     marginVertical:20,
-
-
-    },
-    formInput:{
-        height:50,
-        borderWidth:1,
-        borderColor:'grey',
-        borderRadius:18,
-        padding:15,
-        marginTop:15,
-        
-    },
-    button:{
-        height:50,
-        width:150,
-        backgroundColor:'#C4C4C4',
-        justifyContent:'center',
-        alignItems:'center',
-        borderRadius:18,
-        marginVertical:15,
-        marginHorizontal:85,
-    },
-    text1:{
-        fontSize:25,
-        fontWeight:'bold',
-        color:'white',
-    },
-    text2:{
-        fontSize:40,
-        color:'black',
-        paddingTop:50,
-        textAlign:'center',
-        fontFamily:'Poppins-SemiBold',
-        
-
-    },
-    text5:{
-        fontSize:20,
-        marginTop:-2,
-        marginLeft:129,
-        textDecorationLine:'underline',        
-
-    },
-    img:{
-        width:150,
-        height:150,
-        marginHorizontal:100,
-        marginVertical:30,
-        
-    },
+  container: {
+    flex: 1,
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    padding: 35,
+    backgroundColor: '#fff'
+  },
+  inputStyle: {
+    width: '100%',
+    marginBottom: 15,
+    paddingBottom: 15,
+    alignSelf: "center",
+    borderColor: "#ccc",
+    borderBottomWidth: 1
+  },
+  loginText: {
+    color: 'black',
+    marginTop: 25,
+    textAlign: 'center'
+  },
+  preloader: {
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
+    position: 'absolute',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#fff'
+  },
+  text2:{
+    fontSize:30,
+    color:'black',
+    marginTop:-120,
+    textAlign:'center',
+    fontFamily:'Poppins-SemiBold',
+  },
+  img:{
+    width:140,
+    height:140,
+    marginHorizontal:70,
+    marginVertical:30,
+    
+},
 
 });

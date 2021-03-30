@@ -1,15 +1,18 @@
-import firebase from 'firebase'
+import Firebase from 'firebase'
 
 
 var firebaseConfig = {
-    apiKey: "AIzaSyCKs8aZRFfysdWfhi-sbITVPlVlBzLYaoE",
-    authDomain: "pictureapp-c3eeb.firebaseapp.com",
-    databaseURL: "https://pictureapp-c3eeb-default-rtdb.firebaseio.com",
-    projectId: "pictureapp-c3eeb",
-    storageBucket: "pictureapp-c3eeb.appspot.com",
-    messagingSenderId: "510984527194",
-    appId: "1:510984527194:web:88bbf1f1bf822026832763",
-    measurementId: "G-YJQVMWPS5Q"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
+  apiKey: "AIzaSyDqQ4mnieUzdenKB0dY2x8rAZiuRtSptS8",
+  authDomain: "pictureapp-43a2d.firebaseapp.com",
+  projectId: "pictureapp-43a2d",
+  storageBucket: "pictureapp-43a2d.appspot.com",
+  messagingSenderId: "629180461743",
+  appId: "1:629180461743:web:6c37a8b8af66bf84f21a5a",
+  measurementId: "G-Q6E9N2E6R0"
+};
+
+Firebase.initializeApp(firebaseConfig);
+
+export default Firebase;
+
+
