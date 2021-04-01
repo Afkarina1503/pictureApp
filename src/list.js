@@ -14,6 +14,7 @@ export default function home({ navigation }) {
                             source={require('../src/album/1.png')} />
                     </TouchableOpacity>
                     <TouchableOpacity onPress={() => navigation.navigate('food')}>
+                    <Text>Food</Text>
                     <Image
                         style={styles.img1}
                         source={require('../src/album/2.png')} />

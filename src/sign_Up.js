@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, TextInput, Button, Alert, ActivityIndicator,Image } from 'react-native';
 import firebase from '../src/Firebase';
-import App from './App';
 
 
 export default class sign_Up extends Component {
@@ -43,7 +42,7 @@ export default class sign_Up extends Component {
           email: '', 
           password: '',
         })
-        this.props.navigation.navigate('login')
+        this.props.navigation.navigate('/')
       })
       .catch(error => this.setState({ errorMessage: error.message }))      
     }
@@ -53,7 +52,7 @@ export default class sign_Up extends Component {
     if(this.state.isLoading){
       return(
         <View style={styles.preloader}>
-          <ActivityIndicator size="large" color="#9E9E9E"/>
+          <ActivityIndicator size="large" color="#C4C4C4"/>
         </View>
       )
     }    
@@ -69,7 +68,7 @@ export default class sign_Up extends Component {
             source={require('../src/album/camera.png')} /> 
         <TextInput
           style={styles.inputStyle}
-          placeholder="Name"
+          placeholder="Username"
           value={this.state.displayName}
           onChangeText={(val) => this.updateInputVal(val, 'displayName')}
         />      

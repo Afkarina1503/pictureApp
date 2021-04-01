@@ -4,7 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import home from './home';
 import list from './list';
-import Contact from './Contact';
+import akun from './akun';
 import panorama from './panorama';
 import Ootd from './Ootd';
 import food from './food';
@@ -47,7 +47,7 @@ const Router = () => (
                         <IconBottom data={props} image={require('../src/album/list.png')} />
                     )
                 }} />
-            <Tab.Screen name="Contact" component={Contact}
+            <Tab.Screen name="akun" component={akun}
                 options={{
                     tabBarIcon: (props) => (
                         <IconBottom data={props} image={require('../src/album/man-user.png')} />
@@ -65,7 +65,7 @@ export default function App() {
                 <Stack.Screen name="login" component={login} />
                 <Stack.Screen name="sign_Up" component={sign_Up} />
                 <Stack.Screen name="App" component={App} />
-                <Stack.Screen name="Contact" component={Contact} />
+                <Stack.Screen name="akun" component={akun} />
                 <Stack.Screen name="/" component={Router} />
                 <Stack.Screen name="panorama" component={panorama} />
                 <Stack.Screen name="Ootd" component={Ootd} />

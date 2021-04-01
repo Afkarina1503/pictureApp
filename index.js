@@ -7,7 +7,7 @@ import App from './src/App';
 import login from './src/login';
 import home from './src/home';
 import list from './src/list';
-import Contact from './src/Contact';
+import akun from './src/akun';
 import panorama from './src/panorama';
 import Ootd from './src/Ootd';
 import food from './src/food';

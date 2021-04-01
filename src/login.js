@@ -50,7 +50,7 @@ export default class Login extends Component {
     if(this.state.isLoading){
       return(
         <View style={styles.preloader}>
-          <ActivityIndicator size="large" color="#9E9E9E"/>
+          <ActivityIndicator size="large" color="#C4C4C4"/>
         </View>
       )
     }    
