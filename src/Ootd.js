@@ -49,7 +49,7 @@ export default function home() {
 }
 const styles = StyleSheet.create({
     text1:{
-        fontSize:35,
+        fontSize:25,
         padding:25,
         fontFamily: 'Poppins-SemiBold'
     },

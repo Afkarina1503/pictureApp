@@ -11,43 +11,43 @@ export default function home() {
             style={styles.img}
             source={require('../src/food/imageku.png')} />  
               <Image 
-            style={styles.img}
+            style={styles.img1}
             source={require('../src/food/image38.png')} />  
               <Image 
             style={styles.img}
             source={require('../src/food/image35.png')} />  
               <Image 
-            style={styles.img}
+            style={styles.img1}
             source={require('../src/food/image31.png')} />  
               <Image 
             style={styles.img}
             source={require('../src/food/image25.png')} />  
               <Image 
-            style={styles.img}
+            style={styles.img1}
             source={require('../src/food/image24.png')} />  
               <Image 
             style={styles.img}
             source={require('../src/food/image22.png')} />  
               <Image 
-            style={styles.img}
+            style={styles.img1}
             source={require('../src/food/image19.png')} />  
               <Image 
             style={styles.img}
             source={require('../src/food/image16.png')} />  
             <Image 
-            style={styles.img}
+            style={styles.img1}
             source={require('../src/food/image13.png')} />  
             <Image 
             style={styles.img}
             source={require('../src/food/image1.png')} />  
             <Image 
-            style={styles.img}
+            style={styles.img1}
             source={require('../src/food/image10.png')} />  
             <Image 
             style={styles.img}
             source={require('../src/food/image7.png')} />  
             <Image 
-            style={styles.img}
+            style={styles.img1}
             source={require('../src/food/image4.png')} />  
             </View>
             </ScrollView>
@@ -68,10 +68,17 @@ const styles = StyleSheet.create({
         fontFamily: 'Poppins-ThinItalic',
     },
     img:{
-        width:350,
-        height:200,
+        width:160,
+        height:100,
         marginLeft:6,
         borderRadius:10,
         marginTop:10,
     },
+    img1:{
+      width:160,
+      height:100,
+      marginLeft:190,
+      borderRadius:10,
+      marginTop:-100,
+  },
 });

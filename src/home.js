@@ -1,14 +1,23 @@
 import React from 'react'
-import { View, Text,StyleSheet,Image,ScrollView} from 'react-native'
+import { View, Text,StyleSheet,Image,ScrollView,ImageBackground} from 'react-native'
 
 export default function home() {
     return (
         <ScrollView>
-        <View>
+        <View style={styles.container}>
+            <ImageBackground
+            source={require('../src/album/bg1.png')}
+            style={styles.ImageBackground}
+            />
+            <Image 
+            source={require('../src/album/camera.png')}
+            style={styles.gambar}
+            />
             <Text style={styles.text1}>Welcome PictureApp</Text> 
-            <Text style={styles.text2}>Explore Best Photo</Text>   
-            <View> 
+            <Text style={styles.text2}>Explore Best Photo</Text> 
            
+            </View> 
+            <View> 
             <Image 
             style={styles.img}
             source={require('../src/album/gambar1.png')} />
@@ -34,31 +43,35 @@ export default function home() {
             style={styles.img7}
             source={require('../src/album/gambar9.png')} />
             </View>
-            </View>
             </ScrollView>
 
     )
 }
 const styles = StyleSheet.create({ 
+    container:{
+        flex:1,
+    },
     text1:{
         fontSize:26,
         padding:25,
         fontFamily:'Poppins-SemiBold',
+        position:'absolute'
         
         
     },
     text2:{
         fontSize:20,
-        marginTop:-25,
+        marginTop:60,
         paddingLeft:25,
         fontFamily: 'Poppins-Thin',
+        position:'absolute'
     },
     img:{
         width:160,
         height:230,
         borderRadius:15,
         marginLeft:15,
-        marginTop:60,
+        marginTop:30,
     },
     img1:{
         width:160,
@@ -110,5 +123,19 @@ const styles = StyleSheet.create({
         marginLeft:190,
         marginTop:-230,
     },
-
+    ImageBackground:{
+        flex:1,
+        resizeMode:'cover',
+        width:400,
+        height:150,
+        marginTop:0,
+    },
+    gambar:{
+        width:70,
+        height:70,
+        position:'absolute',
+        marginLeft:260,
+        marginTop:60,
+            
+    },
 });

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, TextInput, Button, Alert, ActivityIndicator,Image } from 'react-native';
 import { roundToNearestPixel } from 'react-native/Libraries/Utilities/PixelRatio';
 import firebase from '../src/Firebase';
-import home from './home';
+
 
 
 export default class Login extends Component {
