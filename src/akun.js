@@ -15,13 +15,16 @@ export default class akun extends Component {
       this.props.navigation.navigate('login')
     })
     .catch(error => this.setState({ errorMessage: error.message }))
-  }  
+  }
+  deleteData() {
+    firebase.database().ref('sign_Up' + userId).remove();
+  }
 
   render() {
     this.state = { 
       displayName: firebase.auth().currentUser.displayName,
       email:firebase.auth().currentUser.email,
-      uid: firebase.auth().currentUser.uid
+      uid: firebase.auth().currentUser.uid,
     }    
     return (
       <View>
